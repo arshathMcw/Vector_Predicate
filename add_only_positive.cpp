@@ -1,10 +1,10 @@
-#include <iostream>
-#include <c7x.h>
-#include <c7x_scalable.h>
+    #include <iostream>
+    #include <c7x.h>
+    #include <c7x_scalable.h>
 
-using namespace c7x;
-using namespace std;
-int main(){
+    using namespace c7x;
+    using namespace std;
+    int main(){
     int height = 18,width = 18,cnt = 1;
     int32_t mat1[height][width],mat2[height][width],output[height][width];
     for(int h = 0;h < height;h++){
