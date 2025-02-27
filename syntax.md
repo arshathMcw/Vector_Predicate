@@ -17,3 +17,7 @@ int_vec even = __vandnw_vvv(vIn1,(int_vec)1);
 ```cpp
 __vpred mask = __vcmpeqw_vvp(even,(int_vec)1);
 ```
+1. To do AND for both predicate
+```cpp
+__vandnw_vvv(pred1,pred2);
+```

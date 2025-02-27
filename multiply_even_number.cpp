@@ -5,7 +5,7 @@
 using namespace c7x;
 using namespace std;
 int main(){
-    int height = 16,width = 18,cnt = 1;
+    int height = 2,width = 18,cnt = 1;
     int32_t mat1[height][width],mat2[height][width],mat3[height][width],output[height][width];
     for(int h = 0;h < height;h++){
         for(int w = 0;w  < width;w++){
@@ -63,10 +63,16 @@ int main(){
         // AND = 0 , NAND = 1
 
 
-        __vpred mask2 = strm_agen<0, int_vec>::get_vpred();
         __vpred mask = __vcmpeqw_vvp(even, int_vec(1)); 
+        cout<<"Mask 1 : ";
+        mask.print();
+        __vpred mask2 = strm_agen<0, int_vec>::get_vpred();
+        cout<<"Mask 2 : ";
+        mask2.print();
         __vpred final_mask =  __and_ppp(mask, mask2);
-
+        cout<<"Mask 3 : ";
+        final_mask.print();
+        cout<<endl;
         int_vec * addr = strm_agen<0, int_vec>::get_adv(&output[0][0]);
         __vstore_pred(final_mask, addr, res);
         
